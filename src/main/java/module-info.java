@@ -1,7 +1,15 @@
-module org.example {
+/**
+ *
+ */
+module application {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.gson;
+    requires java.net.http;
 
-    opens org.example to javafx.fxml;
-    exports org.example;
+
+    opens application.controller;
+    opens application.model.GsonsClass;
+    opens application;
+
 }
