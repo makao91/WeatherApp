@@ -1,5 +1,9 @@
 package application;
 
+import application.controller.MainController;
+import application.controller.PrimaryController;
+import application.model.GetFullGsonData;
+import application.view.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,22 +18,18 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+
+
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 1050, 512);
-        stage.setScene(scene);
-        stage.show();
-      //  GetFullGsonData test = new GetFullGsonData();
-      //  test.getResponse();
 
+        ViewFactory viewFactory = new ViewFactory();
+        viewFactory.showMainWindow();
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
+
 
     public static void main(String[] args) {
         launch();

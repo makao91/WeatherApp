@@ -1,4 +1,5 @@
 package application.model;
 
-public enum StaticValues {
+public class StaticValues {
+    public static String API_KEY = "efcffdfceae519b062a44af691b68cc8";
 }
