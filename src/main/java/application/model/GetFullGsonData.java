@@ -60,6 +60,7 @@ public class GetFullGsonData {
     }
 
     public String getCountry() {
+        country = fullWrappedGson.getCity().getCountry();
         return country;
     }
 

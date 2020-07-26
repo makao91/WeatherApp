@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ViewFactory {
 
     public void showMainWindow() throws IOException {
-        MainController controller = new PrimaryController("Poznań", "", "/application/primary.fxml");
+        MainController controller = new PrimaryController("Poznań", "", "Nuuk", "", "/application/primary.fxml");
         sceneLoader(controller);
     }
 
@@ -27,7 +27,7 @@ public class ViewFactory {
             return;
         }
 
-        Scene scene = new Scene(parent, 1050, 512);
+        Scene scene = new Scene(parent, 1250, 800);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
