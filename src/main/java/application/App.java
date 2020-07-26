@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.Calendar;
 
 /**
  * JavaFX App
@@ -27,6 +28,7 @@ public class App extends Application {
 
         ViewFactory viewFactory = new ViewFactory();
         viewFactory.showMainWindow();
+
     }
 
 

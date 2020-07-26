@@ -12,9 +12,9 @@ public class GetWeatherIcon {
         this.image = new ImageView(linkToIcon);
     }
 
-    public ImageView getImageToResize() {
-        this.image.setFitWidth(50);
-        this.image.setFitHeight(50);
+    public ImageView getImageToResize(int pixelSize) {
+        this.image.setFitWidth(pixelSize);
+        this.image.setFitHeight(pixelSize);
         return this.image;
     }
 }

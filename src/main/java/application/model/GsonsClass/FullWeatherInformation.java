@@ -1,6 +1,7 @@
 package application.model.GsonsClass;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
@@ -22,17 +23,23 @@ public class FullWeatherInformation {
     }
     public String getFormattedDate() {
         Date date = new Date((long)dt*1000);
-        // formattter
         SimpleDateFormat formatter = new SimpleDateFormat("HH");
-        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-        // Pass date object
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC+2"));
         String formatted = formatter.format(date);
-
-        System.out.println(dt);
-
-
         return formatted + ":00";
     }
+
+    public Integer getDayFromWeatherData(){
+
+        Date date = new Date((long)dt*1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd");
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC+2"));
+        String formatted = formatter.format(date);
+        int integerDay = Integer.parseInt(formatted);
+        return integerDay;
+    }
+
+
 
     public Main getMain() {
         return main;

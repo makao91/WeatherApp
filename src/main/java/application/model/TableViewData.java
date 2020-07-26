@@ -20,7 +20,7 @@ public class TableViewData {
     public TableViewData(String dateTime, String iconSymbol, Float temp) {
         this.dateTime = new SimpleStringProperty(dateTime);
         imageToResize = new GetWeatherIcon("http://openweathermap.org/img/wn/"+iconSymbol+"@2x.png");
-        this.icon = imageToResize.getImageToResize();
+        this.icon = imageToResize.getImageToResize(30);
         this.temp = new SimpleFloatProperty(temp);
     }
 

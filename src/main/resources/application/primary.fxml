@@ -1,25 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="512.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="798.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="firstCountry" layoutX="21.0" layoutY="28.0" prefHeight="25.0" prefWidth="271.0" />
-      <TextField fx:id="secondCountry" layoutX="21.0" layoutY="287.0" prefHeight="25.0" prefWidth="271.0" />
-      <TextField fx:id="firstTown" layoutX="21.0" layoutY="70.0" prefHeight="25.0" prefWidth="271.0" />
-      <TextField fx:id="secondTown" layoutX="21.0" layoutY="323.0" prefHeight="25.0" prefWidth="271.0" />
-      <Button layoutX="21.0" layoutY="101.0" mnemonicParsing="false" onAction="#firstShowButton" prefHeight="33.0" prefWidth="118.0" text="Pokaż" />
-      <Button layoutX="21.0" layoutY="364.0" mnemonicParsing="false" onAction="#secondShowButton" prefHeight="33.0" prefWidth="118.0" text="Pokaż" />
-      <TableView fx:id="trueTableView" layoutX="335.0" layoutY="24.0" prefHeight="487.0" prefWidth="155.0">
+      <TextField fx:id="firstCountry" layoutX="55.0" layoutY="22.0" prefHeight="25.0" prefWidth="271.0" />
+      <TextField fx:id="secondCountry" layoutX="51.0" layoutY="410.0" prefHeight="25.0" prefWidth="271.0" />
+      <TextField fx:id="firstTown" layoutX="363.0" layoutY="22.0" prefHeight="25.0" prefWidth="271.0" />
+      <TextField fx:id="secondTown" layoutX="363.0" layoutY="410.0" prefHeight="25.0" prefWidth="271.0" />
+      <Button layoutX="675.0" layoutY="18.0" mnemonicParsing="false" onAction="#firstShowButton" prefHeight="33.0" prefWidth="118.0" text="Pokaż" />
+      <Button layoutX="675.0" layoutY="406.0" mnemonicParsing="false" onAction="#secondShowButton" prefHeight="33.0" prefWidth="118.0" text="Pokaż" />
+      <TableView fx:id="firstFirstTableView" layoutX="55.0" layoutY="76.0" prefHeight="314.0" prefWidth="132.0">
         <columns>
-          <TableColumn fx:id="timeCol" prefWidth="53.0" text="Godzina" />
-          <TableColumn fx:id="stateCol" prefWidth="49.0" text="Stan" />
-            <TableColumn fx:id="tempCol" prefWidth="52.0" text="Temp." />
+          <TableColumn fx:id="timeColFrstFrst" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColFrstFrst" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColFrstFrst" prefWidth="41.0" text="Temp." />
         </columns>
       </TableView>
+      <TableView fx:id="firstSecondTableView" layoutX="249.0" layoutY="76.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColFrstSecond" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColFrstSecond" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColFrstSecond" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <Label fx:id="labelFirstSecond" layoutX="249.0" layoutY="59.0" prefHeight="17.0" prefWidth="131.0" text="dateDay2" />
+      <TableView fx:id="firstThirdTableView" layoutX="438.0" layoutY="76.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColFrstThird" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColFrstThird" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColFrstThird" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <TableView fx:id="firstFouthTableView" layoutX="634.0" layoutY="76.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColFrstFourth" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColFrstFourth" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColFrstFourth" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <TableView fx:id="firstFifthTableView" layoutX="821.0" layoutY="76.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColFrstFifth" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColFrstFifth" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColFrstFifth" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <Label fx:id="labelFirstThird" layoutX="438.0" layoutY="59.0" prefHeight="17.0" prefWidth="131.0" text="dateDay3" />
+      <Label fx:id="labelFirstFouth" layoutX="634.0" layoutY="59.0" prefHeight="17.0" prefWidth="131.0" text="dateDay4" />
+      <Label fx:id="labelFirstFifth" layoutX="821.0" layoutY="59.0" prefHeight="17.0" prefWidth="131.0" text="dateDay5" />
+      <Label fx:id="labelFirstFirst" layoutX="55.0" layoutY="59.0" prefHeight="17.0" prefWidth="131.0" text="dateFirstDay" />
+      <TableView fx:id="legendTableView" layoutX="986.0" layoutY="76.0" prefHeight="605.0" prefWidth="232.0">
+        <columns>
+          <TableColumn prefWidth="232.0" text="Legenda">
+               <columns>
+                  <TableColumn fx:id="iconCol" prefWidth="55.0" text="ikona" />
+                <TableColumn fx:id="descriptionCol" prefWidth="175.0" text="opis" />
+               </columns>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <TableView fx:id="secondFirstTableView" layoutX="55.0" layoutY="467.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColSecondFrst" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColSecondFirst" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColSecondFirst" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <Label fx:id="labelSecondFirst" layoutX="55.0" layoutY="450.0" prefHeight="17.0" prefWidth="131.0" text="dateFirstDay" />
+      <TableView fx:id="secondSecondTableView" layoutX="249.0" layoutY="467.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColSecondSecond" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColSecondSecond" minWidth="9.0" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColSecondSecond" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <TableView fx:id="secondThirdTableView" layoutX="433.0" layoutY="467.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColSecondThird" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColSecondThird" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColSecondThird" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <TableView fx:id="secondFourthTableView" layoutX="634.0" layoutY="467.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColSecondFourth" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColSecondFourth" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColSecondFourth" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <TableView fx:id="secondFifthTableView" layoutX="821.0" layoutY="467.0" prefHeight="314.0" prefWidth="132.0">
+        <columns>
+          <TableColumn fx:id="timeColSecondFifth" prefWidth="53.0" text="Godzina" />
+          <TableColumn fx:id="stateColSecondFifth" prefWidth="36.0" text="Stan" />
+            <TableColumn fx:id="tempColSecondFifth" prefWidth="41.0" text="Temp." />
+        </columns>
+      </TableView>
+      <Label fx:id="labelSecondSecond" layoutX="250.0" layoutY="450.0" prefHeight="17.0" prefWidth="131.0" text="dateDay2" />
+      <Label fx:id="labelSecondThird" layoutX="434.0" layoutY="450.0" prefHeight="17.0" prefWidth="131.0" text="dateDay3" />
+      <Label fx:id="labelSecondFourth" layoutX="634.0" layoutY="450.0" prefHeight="17.0" prefWidth="131.0" text="dateDay4" />
+      <Label fx:id="labelSecondFifth" layoutX="822.0" layoutY="450.0" prefHeight="17.0" prefWidth="131.0" text="dateDay5" />
    </children>
 </AnchorPane>
