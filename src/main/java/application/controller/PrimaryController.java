@@ -1,6 +1,7 @@
 package application.controller;
 
 
+import application.model.GetFullGsonData;
 import application.model.GsonsClass.FullWeatherInformation;
 import application.model.LegendData;
 import application.model.TableViewData;
@@ -14,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,50 +26,60 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 
-public class PrimaryController extends MainController implements Initializable {
+public class PrimaryController implements Initializable {
 
-    ArrayList<FullWeatherInformation> fullWeatherInformation;
-    ArrayList<FullWeatherInformation> fullWeatherInformationForSecondCity;
-    HashMap<String, String> legendMap;
-    Date dt;
-
-    private ObservableList<TableViewData> dataFirstFirst;
-    private ObservableList<TableViewData> dataFirstSecond;
-    private ObservableList<TableViewData> dataFirstThird;
-    private ObservableList<TableViewData> dataFirstFourth;
-    private ObservableList<TableViewData> dataFirstFifth;
-    private ObservableList<TableViewLegendData> legendDataObservableList;
-    private ObservableList<TableViewData> dataSecondFirst;
-    private ObservableList<TableViewData> dataSecondSecond;
-    private ObservableList<TableViewData> dataSecondThird;
-    private ObservableList<TableViewData> dataSecondFourth;
-    private ObservableList<TableViewData> dataSecondFifth;
+    private ArrayList<FullWeatherInformation> fullWeatherInformation;
+    private ArrayList<FullWeatherInformation> fullWeatherInformationForSecondCity;
+    private HashMap<String, String> legendMap;
+    private LegendData legendData;
+    private Date dt;
+    private GetFullGsonData getFullGsonData;
+    private GetFullGsonData getFullGsonDataForSecondCity;
+    private String fxmlName;
+    private ObservableList<TableViewData> dataFirstFirst=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataFirstSecond=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataFirstThird=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataFirstFourth=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataFirstFifth=  FXCollections.observableArrayList();
+    private ObservableList<TableViewLegendData> legendDataObservableList=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataSecondFirst=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataSecondSecond=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataSecondThird=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataSecondFourth=  FXCollections.observableArrayList();
+    private ObservableList<TableViewData> dataSecondFifth=  FXCollections.observableArrayList();
+    private String ftown;
+    private String fCountry;
+    private String sTown;
+    private String sCountry;
 
 
     public PrimaryController(String town, String country, String secondTown, String secondCountry, String fxmlName) throws IOException {
-        super(town, country, secondTown, secondCountry, fxmlName);
-        fullWeatherInformation = getFullGsonData.getFullWeatherInformation();
-        fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
-
-        LegendData legendData = new LegendData();
+        legendData = new LegendData();
         legendMap = legendData.getLegednData();
         dt = new Date();
-
-        dataFirstFirst =  FXCollections.observableArrayList();
-        dataFirstSecond =  FXCollections.observableArrayList();
-        dataFirstThird =  FXCollections.observableArrayList();
-        dataFirstFourth =  FXCollections.observableArrayList();
-        dataFirstFifth =  FXCollections.observableArrayList();
-        legendDataObservableList = FXCollections.observableArrayList();
-        dataSecondFirst =  FXCollections.observableArrayList();
-        dataSecondSecond =  FXCollections.observableArrayList();
-        dataSecondThird =  FXCollections.observableArrayList();
-        dataSecondFourth =  FXCollections.observableArrayList();
-        dataSecondFifth =  FXCollections.observableArrayList();
-
+        this.fxmlName = fxmlName;
+        this.ftown = town;
+        this.fCountry = country;
+        this.sTown = secondTown;
+        this.sCountry = secondCountry;
     }
+
+    final Label placeholderLabelCountry = new Label("Wprowadź nazwę kraju");
+    final Label placeholderLabelTown = new Label("Wprowadź nazwę miasta");
+    @FXML
+    private Label titleLabel;
+
+    @FXML
+    private Label helpLabel1;
+
+    @FXML
+    private Label helpLabel2;
+
+    @FXML
+    private Label errorLabel;
 
     @FXML
     private TextField firstCountry;
@@ -235,13 +247,42 @@ public class PrimaryController extends MainController implements Initializable {
 
 
     @FXML
-    void firstShowButton() {
+    void firstShowButton() throws IOException {
+        errorLabel.setText("");
+       clearArraysListsFirstTown();
+        if(fullWeatherInformation != null){
+            fullWeatherInformation.clear();
+        }
+        if(validFields(firstTown.getText(), firstCountry.getText())) {
+            try {
+                getFullGsonData = new GetFullGsonData(firstTown.getText(), firstCountry.getText());
+                fullWeatherInformation = getFullGsonData.getFullWeatherInformation();
+                setUpFirstTableView();
+            }catch (Exception e) {
+                e.printStackTrace();
+                errorLabel.setText("Niewłaściwa nazwa miejscowości lub państwa!");
+            }
 
+        }
     }
 
     @FXML
-    void secondShowButton() {
-
+    void secondShowButton() throws IOException {
+        errorLabel.setText("");
+        clearArraysListsSecondTown();
+        if(fullWeatherInformationForSecondCity != null) {
+            fullWeatherInformationForSecondCity.clear();
+        }
+        if(validFields(secondTown.getText(), secondCountry.getText())) {
+            try {
+                getFullGsonDataForSecondCity = new GetFullGsonData(secondTown.getText(), secondCountry.getText());
+                fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
+                setUpSecondTableView();
+            }catch (Exception e) {
+                e.printStackTrace();
+                errorLabel.setText("Niewłaściwa nazwa miejscowości lub państwa!");
+            }
+        }
     }
     @FXML
     private TableView<TableViewLegendData> legendTableView;
@@ -252,17 +293,60 @@ public class PrimaryController extends MainController implements Initializable {
     @FXML
     private TableColumn<TableViewLegendData, String> descriptionCol;
 
+    public String getFxmlName() {
+        return fxmlName;
+    }
+
+    private boolean validFields(String field1, String field2) {
+        if(field1.isEmpty() && field2.isEmpty()) {
+            errorLabel.setText("Musisz wpisać miasto lub państwo!");
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            this.getFullGsonData = new GetFullGsonData(ftown, fCountry);
+            this.getFullGsonDataForSecondCity = new GetFullGsonData(sTown, sCountry);
+            fullWeatherInformation = getFullGsonData.getFullWeatherInformation();
+            fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
+        } catch (IOException e) {
+            errorLabel.setText("Problem z internetem :(");
+            e.printStackTrace();
+
+        }
+
         firstTown.setText(getFullGsonData.getTown());
         secondTown.setText(getFullGsonDataForSecondCity.getTown());
         firstCountry.setText(getFullGsonData.getCountry());
         secondCountry.setText(getFullGsonDataForSecondCity.getCountry());
+        firstCountry.setPromptText("Wprowadź nazwę kraju.");
+        firstTown.setPromptText("Wprowadź nazwę miasta.");
+        secondCountry.setPromptText("Wprowadź nazwę kraju.");
+        secondTown.setPromptText("Wprowadź nazwę miasta.");
         setUpLegend();
         setUpLabels();
         setUpFirstTableView();
         setUpSecondTableView();
+    }
+
+    private void clearArraysListsFirstTown() {
+        dataFirstFirst.clear();
+        dataFirstSecond.clear();
+        dataFirstThird.clear();
+        dataFirstFourth.clear();
+        dataFirstFifth.clear();
+    }
+
+    private void clearArraysListsSecondTown() {
+        dataSecondFirst.clear();
+        dataSecondSecond.clear();
+        dataSecondThird.clear();
+        dataSecondFourth.clear();
+        dataSecondFourth.clear();
     }
 
     private void setUpLabels() {
@@ -272,8 +356,8 @@ public class PrimaryController extends MainController implements Initializable {
         labelFirstFouth.setText(getDayAndMonth(LocalDateTime.from(dt.toInstant().atZone(ZoneId.of("UTC+2"))).plusDays(3)));
         labelFirstFifth.setText(getDayAndMonth(LocalDateTime.from(dt.toInstant().atZone(ZoneId.of("UTC+2"))).plusDays(4)));
 
-        labelFirstFirst.setText("Pogoda na dziś");
-        labelFirstSecond.setText("Pogoda na jutro");
+        labelSecondFirst.setText("Pogoda na dziś");
+        labelSecondSecond.setText("Pogoda na jutro");
         labelSecondThird.setText(getDayAndMonth(LocalDateTime.from(dt.toInstant().atZone(ZoneId.of("UTC+2"))).plusDays(2)));
         labelSecondFourth.setText(getDayAndMonth(LocalDateTime.from(dt.toInstant().atZone(ZoneId.of("UTC+2"))).plusDays(3)));
         labelSecondFifth.setText(getDayAndMonth(LocalDateTime.from(dt.toInstant().atZone(ZoneId.of("UTC+2"))).plusDays(4)));

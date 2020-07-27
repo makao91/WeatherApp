@@ -1,0 +1,34 @@
+* {
+    -fx-background-color: #dba307;
+
+}
+.bigLabel {
+    -fx-font-size: 15px;
+}
+.title{
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+.textField{
+
+    -fx-font-weight: bold;
+    -fx-font-size: 17px;
+    -fx-border-radius: 5;
+    -fx-border-color: #bf9b08;
+    -fx-prompt-text-fill: black;
+    -fx-prompt-size: 5px;
+}
+.button{
+    -fx-text-fill: white;
+    -fx-background-color:#453302;
+    -fx-border-radius: 5;
+    -fx-padding: 3 6 6 6;
+    -fx-font-size: 13px;
+}
+.table{
+    -fx-border-color: white;
+}
+.errorLeb{
+    -fx-font-size: 14px;
+    -fx-text-fill: #bf160a;
+}

@@ -42,9 +42,6 @@ public class GetFullGsonData {
         var response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         obj = new Gson().fromJson(response.body(), FullWrappedGson.class);
         fullWeatherInformation = obj.getList();
-        for (FullWeatherInformation list: obj.getList()) {
-           // System.out.println(list.getMain().getTemp());
-        }
     }catch(Exception e){
         e.printStackTrace();
         }
