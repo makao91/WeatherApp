@@ -1,8 +1,8 @@
 package application.model.GsonsClass;
 
 public class Wind {
-    Float speed;
-    Integer deg;
+    private Float speed;
+    private Integer deg;
 
     public Float getSpeed() {
         return speed;
@@ -11,5 +11,4 @@ public class Wind {
     public Integer getDeg() {
         return deg;
     }
-
 }

@@ -1,8 +1,8 @@
 package application.model.GsonsClass;
 
 public class Coord {
-    Float lon;
-    Float lat;
+    private Float lon;
+    private Float lat;
 
     public float getLon() {
         return lon;

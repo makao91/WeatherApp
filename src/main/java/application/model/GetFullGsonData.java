@@ -10,16 +10,17 @@ import  java.net.http.HttpClient;
 import  java.net.http.HttpRequest;
 import  java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.List;
 
 import static application.model.StaticValues.API_KEY;
 
 
 public class GetFullGsonData {
 
-    String town;
-    String country;
-    FullWrappedGson fullWrappedGson;
-    ArrayList<FullWeatherInformation> fullWeatherInformation;
+    private final String town;
+    private String country;
+    private final FullWrappedGson fullWrappedGson;
+    private List<FullWeatherInformation> fullWeatherInformation;
 
 
     public GetFullGsonData(String town, String country) throws IOException {
@@ -28,7 +29,7 @@ public class GetFullGsonData {
         this.fullWrappedGson = getResponse();
     }
 
-    public FullWrappedGson getResponse() throws IOException {
+    private final FullWrappedGson getResponse() throws IOException {
 
         FullWrappedGson obj = new FullWrappedGson();
         HttpClient client = HttpClient.newHttpClient();
@@ -52,20 +53,12 @@ public class GetFullGsonData {
         return town;
     }
 
-    public void setTown(String town) {
-        this.town = town;
-    }
-
     public String getCountry() {
         country = fullWrappedGson.getCity().getCountry();
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public ArrayList<FullWeatherInformation> getFullWeatherInformation() {
+    public List<FullWeatherInformation> getFullWeatherInformation() {
         return fullWeatherInformation;
     }
 }

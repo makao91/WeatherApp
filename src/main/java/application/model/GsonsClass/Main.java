@@ -1,12 +1,12 @@
 package application.model.GsonsClass;
 
 public class Main {
-    Float temp;
-    Float feels_like;
-    Float temp_min;
-    Float temp_max;
-    Float pressure;
-    Integer humidity;
+    private Float temp;
+    private Float feels_like;
+    private Float temp_min;
+    private Float temp_max;
+    private Float pressure;
+    private Integer humidity;
 
     public Float getTemp() {
         return temp;

@@ -1,6 +1,3 @@
-/**
- *
- */
 module application {
     requires javafx.controls;
     requires javafx.fxml;
@@ -14,5 +11,4 @@ module application {
     opens application.model;
     opens application.model.GsonsClass;
     opens application;
-
 }
