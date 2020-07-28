@@ -4,13 +4,14 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 public class FullWeatherInformation {
 
     private Integer dt;
     private Main main;
-    private ArrayList<Weather> weather;
+    private List<Weather> weather;
     private Clouds clouds;
     private Wind wind;
     private Integer visibility;
@@ -30,7 +31,6 @@ public class FullWeatherInformation {
     }
 
     public Integer getDayFromWeatherData(){
-
         Date date = new Date((long)dt*1000);
         SimpleDateFormat formatter = new SimpleDateFormat("dd");
         formatter.setTimeZone(TimeZone.getTimeZone("UTC+2"));
@@ -39,13 +39,11 @@ public class FullWeatherInformation {
         return integerDay;
     }
 
-
-
     public Main getMain() {
         return main;
     }
 
-    public ArrayList<Weather> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 

@@ -1,8 +1,6 @@
 package application.model;
 
 import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.ImageView;
 
@@ -24,16 +22,27 @@ public class TableViewData {
         this.temp = new SimpleFloatProperty(temp);
     }
 
+    public ImageView getIcon() {
+        return icon;
+    }
+
     public String getDateTime() {
         return dateTime.get();
     }
 
-    public ImageView getIcon() {
-        return icon;
+    public SimpleStringProperty dateTimeProperty() {
+        return dateTime;
     }
 
     public float getTemp() {
         return temp.get();
     }
 
+    public SimpleFloatProperty tempProperty() {
+        return temp;
+    }
+
+    public GetWeatherIcon getImageToResize() {
+        return imageToResize;
+    }
 }

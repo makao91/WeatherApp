@@ -1,14 +1,15 @@
 package application.model.GsonsClass;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FullWrappedGson {
 
-    Integer cod;
-    Integer message;
-    Integer cnt;
-    ArrayList<FullWeatherInformation> list;
-    City city;
+    private Integer cod;
+    private Integer message;
+    private Integer cnt;
+    private List<FullWeatherInformation> list;
+    private City city;
 
     public Integer getCod() {
         return cod;
@@ -22,7 +23,7 @@ public class FullWrappedGson {
         return cnt;
     }
 
-    public ArrayList<FullWeatherInformation> getList() {
+    public List<FullWeatherInformation> getList() {
         return list;
     }
 

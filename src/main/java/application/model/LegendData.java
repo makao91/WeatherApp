@@ -1,21 +1,18 @@
 package application.model;
 
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.image.ImageView;
-
 import java.util.HashMap;
+import java.util.Map;
 
 public class LegendData {
 
-    private HashMap<String, String> legednData;
+    private final Map<String, String> legednData;
 
     public LegendData() {
         this.legednData = new HashMap<String, String>();
         makeLegendData();
     }
 
-    private void makeLegendData() {
+    private final void makeLegendData() {
         legednData.put("01d", "bezchmurne niebo");
         legednData.put("01n", "bezchmurna noc");
         legednData.put("02d", "pojedyńcze chmurki");
@@ -28,10 +25,8 @@ public class LegendData {
         legednData.put("11d", "burza");
         legednData.put("13d", "śnieg");
         legednData.put("50d", "mgła");
-
     }
-
-    public HashMap<String, String> getLegednData() {
+    public Map<String, String> getLegednData() {
         return legednData;
     }
 }

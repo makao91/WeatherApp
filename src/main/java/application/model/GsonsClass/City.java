@@ -2,14 +2,14 @@ package application.model.GsonsClass;
 
 public class City {
 
-    Integer id;
-    String name;
-    Coord coord;
-    String country;
-    Integer population;
-    Integer timezone;
-    Integer sunrise;
-    Integer sunset;
+    private Integer id;
+    private String name;
+    private Coord coord;
+    private String country;
+    private Integer population;
+    private Integer timezone;
+    private Integer sunrise;
+    private Integer sunset;
 
     public Integer getId() {
         return id;
