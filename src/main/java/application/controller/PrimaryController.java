@@ -296,7 +296,7 @@ public class PrimaryController implements Initializable {
         return fxmlName;
     }
 
-    private final boolean validFields(String field1, String field2) {
+    public final boolean validFields(String field1, String field2) {
         if(field1.isEmpty() && field2.isEmpty()) {
             errorLabel.setText("Musisz wpisać miasto lub państwo!");
             return false;
