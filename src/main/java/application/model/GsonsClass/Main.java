@@ -31,4 +31,28 @@ public class Main {
     public Integer getHumidity() {
         return humidity;
     }
+
+    public void setTemp(Float temp) {
+        this.temp = temp;
+    }
+
+    public void setFeels_like(Float feels_like) {
+        this.feels_like = feels_like;
+    }
+
+    public void setTemp_min(Float temp_min) {
+        this.temp_min = temp_min;
+    }
+
+    public void setTemp_max(Float temp_max) {
+        this.temp_max = temp_max;
+    }
+
+    public void setPressure(Float pressure) {
+        this.pressure = pressure;
+    }
+
+    public void setHumidity(Integer humidity) {
+        this.humidity = humidity;
+    }
 }

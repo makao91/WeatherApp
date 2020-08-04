@@ -3,6 +3,7 @@ package application.model;
 import application.model.GsonsClass.FullWeatherInformation;
 import application.model.GsonsClass.FullWrappedGson;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -42,8 +43,9 @@ public class GetFullGsonData {
     try{
         var response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         obj = new Gson().fromJson(response.body(), FullWrappedGson.class);
+        System.out.println(new Gson().fromJson(response.body(), FullWrappedGson.class));
         fullWeatherInformation = obj.getList();
-    }catch(Exception e){
+    }catch(NumberFormatException | InterruptedException e){
         e.printStackTrace();
         }
     return obj;
