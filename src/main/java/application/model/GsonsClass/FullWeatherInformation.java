@@ -70,4 +70,40 @@ public class FullWeatherInformation {
     public String getDr_txt() {
         return dr_txt;
     }
+
+    public void setDt(Integer dt) {
+        this.dt = dt;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public void setWeather(List<Weather> weather) {
+        this.weather = weather;
+    }
+
+    public void setClouds(Clouds clouds) {
+        this.clouds = clouds;
+    }
+
+    public void setWind(Wind wind) {
+        this.wind = wind;
+    }
+
+    public void setVisibility(Integer visibility) {
+        this.visibility = visibility;
+    }
+
+    public void setPop(Float pop) {
+        this.pop = pop;
+    }
+
+    public void setSys(Sys sys) {
+        this.sys = sys;
+    }
+
+    public void setDr_txt(String dr_txt) {
+        this.dr_txt = dr_txt;
+    }
 }

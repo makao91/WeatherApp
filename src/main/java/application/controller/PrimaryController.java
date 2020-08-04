@@ -262,7 +262,7 @@ public class PrimaryController implements Initializable {
                 getFullGsonDataForSecondCity = new GetFullGsonData(secondTown.getText(), secondCountry.getText());
                 fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
                 setUpSecondTableView();
-            }catch (Exception e) {
+            }catch (IllegalArgumentException | IOException e) {
                 e.printStackTrace();
                 errorLabel.setText("Niewłaściwa nazwa miejscowości lub państwa!");
             }

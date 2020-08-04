@@ -30,4 +30,24 @@ public class FullWrappedGson {
     public City getCity() {
         return city;
     }
+
+    public void setCod(Integer cod) {
+        this.cod = cod;
+    }
+
+    public void setMessage(Integer message) {
+        this.message = message;
+    }
+
+    public void setCnt(Integer cnt) {
+        this.cnt = cnt;
+    }
+
+    public void setList(List<FullWeatherInformation> list) {
+        this.list = list;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }
