@@ -5,28 +5,28 @@ import java.util.Map;
 
 public class LegendData {
 
-    private final Map<String, String> legednData;
+    private final Map<String, String> legendData;
 
     public LegendData() {
-        this.legednData = new HashMap<String, String>();
+        this.legendData = new HashMap<>();
         makeLegendData();
     }
 
     private final void makeLegendData() {
-        legednData.put("01d", "bezchmurne niebo");
-        legednData.put("01n", "bezchmurna noc");
-        legednData.put("02d", "pojedyńcze chmurki");
-        legednData.put("02n", "pojedyńcze chmurki nocą");
-        legednData.put("03d", "chmury pierzaste");
-        legednData.put("04d", "pochmurnie z przjaśnieniami");
-        legednData.put("09d", "przelotny deszcz");
-        legednData.put("10d", "deszcz");
-        legednData.put("10n", "deszcz w nocy");
-        legednData.put("11d", "burza");
-        legednData.put("13d", "śnieg");
-        legednData.put("50d", "mgła");
+        legendData.put("01d", "bezchmurne niebo");
+        legendData.put("01n", "bezchmurna noc");
+        legendData.put("02d", "pojedyńcze chmurki");
+        legendData.put("02n", "pojedyńcze chmurki nocą");
+        legendData.put("03d", "chmury pierzaste");
+        legendData.put("04d", "pochmurnie z przjaśnieniami");
+        legendData.put("09d", "przelotny deszcz");
+        legendData.put("10d", "deszcz");
+        legendData.put("10n", "deszcz w nocy");
+        legendData.put("11d", "burza");
+        legendData.put("13d", "śnieg");
+        legendData.put("50d", "mgła");
     }
-    public Map<String, String> getLegednData() {
-        return legednData;
+    public Map<String, String> getLegendData() {
+        return legendData;
     }
 }

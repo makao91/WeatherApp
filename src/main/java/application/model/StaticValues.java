@@ -1,28 +1,30 @@
 package application.model;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class StaticValues {
     public static final String API_KEY = "efcffdfceae519b062a44af691b68cc8";
-    public static final String firstTown = "Poznań";
-    public static final String secondTown = "Nuuk";
-    public static final String firstCountry = "";
-    public static final String secondCountry = "";
-    public static final String fxmlName = "/application/primary.fxml";
+    public static final String FIRST_TOWN = "Poznań";
+    public static final String SECOND_TOWN = "Nuuk";
+    public static final String FIRST_COUNTRY = "";
+    public static final String SECOND_COUNTRY = "";
+    public static final String FXML_NAME = "/application/primary.fxml";
+    public static final int NUMBER_OF_GSON_DATA_IN_PACKAGE = 40;
+    public static final String WRONG_NAME_OF_TOWN_OR_COUNTRY ="Niewłaściwa nazwa miejscowości lub państwa!";
+    public static final String SET_COUNTRY ="Wprowadź nazwę kraju.";
+    public static final String SET_TOWN ="Wprowadź nazwę miasta.";
 
-    public static Integer getCuurentDayOfTheMonth(long plusDays) {
-
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd");
-        LocalDateTime now = LocalDateTime.now();
-        now = now.plusDays(plusDays);
-        int integerDay = Integer.parseInt(dtf.format(now));
-        return integerDay;
+    public static String getDayAndMonth (LocalDateTime date, Integer plusDays) {
+        String formattedDate = date.plusDays(plusDays).getDayOfMonth() + " - " + date.plusDays(plusDays).getMonthValue();
+        return formattedDate;
     }
-    public static String getDayAndMonth (LocalDateTime date) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
-        LocalDateTime now = LocalDateTime.now();
-        String formatted = date.format(dtf);
-        return formatted;
+    public static LocalDateTime getDateFromGsonData (Integer dateFromGson) {
+        long test_timestamp = dateFromGson*1000L;
+        LocalDateTime triggerTime =
+                LocalDateTime.ofInstant(Instant.ofEpochMilli(test_timestamp), ZoneId.systemDefault());
+        return triggerTime;
     }
 }
