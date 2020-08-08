@@ -9,6 +9,6 @@ module application {
     opens application.controller;
     opens application.view;
     opens application.model;
-    opens application.model.GsonsClass;
+    opens application.model.gsonsClass;
     opens application;
 }

@@ -12,8 +12,8 @@ import static application.model.StaticValues.*;
 public class ViewFactory {
 
     public void showMainWindow() throws IOException {
-        PrimaryController controller = new PrimaryController(firstTown, firstCountry, secondTown, secondCountry,
-                fxmlName);
+        PrimaryController controller = new PrimaryController(FIRST_TOWN, FIRST_COUNTRY, SECOND_TOWN, SECOND_COUNTRY,
+                FXML_NAME);
         sceneLoader(controller);
     }
 

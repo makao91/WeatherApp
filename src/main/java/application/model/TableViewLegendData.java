@@ -11,8 +11,8 @@ public class TableViewLegendData {
 
     public TableViewLegendData(String iconSymbol, String description) {
         this.description = new SimpleStringProperty(description);
-        imageToResize = new GetWeatherIcon("http://openweathermap.org/img/wn/"+iconSymbol+"@2x.png");
-        this.icon = imageToResize.getImageToResize(40);
+        imageToResize = new GetWeatherIcon("http://openweathermap.org/img/wn/" + iconSymbol + "@2x.png");
+        icon = imageToResize.getImageToResize(40);
     }
 
     public ImageView getIcon() {
