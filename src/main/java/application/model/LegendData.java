@@ -8,7 +8,7 @@ public class LegendData {
     private final Map<String, String> legendData;
 
     public LegendData() {
-        this.legendData = new HashMap<>();
+        legendData = new HashMap<>();
         makeLegendData();
     }
 

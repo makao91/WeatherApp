@@ -39,7 +39,6 @@ public class GetFullGsonData {
         var response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         fullWrappedGson = new Gson().fromJson(response.body(), FullWrappedGson.class);
         fullWeatherInformation = fullWrappedGson.getList();
-
     }
 
     public String getTown() {
@@ -52,5 +51,9 @@ public class GetFullGsonData {
 
     public FullWrappedGson getFullWrappedGson() {
         return fullWrappedGson;
+    }
+
+    public void setFullWeatherInformation(List<FullWeatherInformation> fullWeatherInformation) {
+        this.fullWeatherInformation = fullWeatherInformation;
     }
 }

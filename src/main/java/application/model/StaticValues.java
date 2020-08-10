@@ -3,7 +3,6 @@ package application.model;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 
 public class StaticValues {
     public static final String API_KEY = "efcffdfceae519b062a44af691b68cc8";
@@ -16,6 +15,7 @@ public class StaticValues {
     public static final String WRONG_NAME_OF_TOWN_OR_COUNTRY ="Niewłaściwa nazwa miejscowości lub państwa!";
     public static final String SET_COUNTRY ="Wprowadź nazwę kraju.";
     public static final String SET_TOWN ="Wprowadź nazwę miasta.";
+    public static final String INTERNET_CONNECTION_FAILS = "Problen z płączeniem internetowym :(";
 
     public static String getDayAndMonth (LocalDateTime date, Integer plusDays) {
         String formattedDate = date.plusDays(plusDays).getDayOfMonth() + " - " + date.plusDays(plusDays).getMonthValue();

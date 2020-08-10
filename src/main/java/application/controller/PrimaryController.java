@@ -251,7 +251,7 @@ public class PrimaryController implements Initializable {
                 getFullGsonData = getNewData(firstTown.getText(), firstCountry.getText());
                 fullWeatherInformation = getFullGsonData.getFullWeatherInformation();
                 setUpFirstTableView();
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
                 e.printStackTrace();
                 errorLabel.setText(WRONG_NAME_OF_TOWN_OR_COUNTRY);
             }
@@ -268,7 +268,7 @@ public class PrimaryController implements Initializable {
                 getFullGsonDataForSecondCity = getNewData(secondTown.getText(), secondCountry.getText());
                 fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
                 setUpSecondTableView();
-            } catch (IllegalArgumentException | IOException e) {
+            } catch (IllegalArgumentException e) {
                 e.printStackTrace();
                 errorLabel.setText(WRONG_NAME_OF_TOWN_OR_COUNTRY);
             }
@@ -296,12 +296,15 @@ public class PrimaryController implements Initializable {
         return fxmlName;
     }
 
-    private GetFullGsonData getNewData (String town, String country) throws IOException {
+    private GetFullGsonData getNewData (String town, String country) {
         GetFullGsonData data = new GetFullGsonData(town, country);
         try {
             data.getResponse();
+        } catch (IOException e) {
+            errorLabel.setText(INTERNET_CONNECTION_FAILS);
+            e.printStackTrace();
         } catch (InterruptedException e) {
-            errorLabel.setText("Problen z płączeniem internetowym :(");
+            errorLabel.setText(INTERNET_CONNECTION_FAILS);
             e.printStackTrace();
         }
         return data;
@@ -309,15 +312,10 @@ public class PrimaryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            getFullGsonData = getNewData(ftown, fCountry);
-            getFullGsonDataForSecondCity = getNewData(sTown, sCountry);
-            fullWeatherInformation = getFullGsonData.getFullWeatherInformation();
-            fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
-        } catch (IOException e) {
-            errorLabel.setText("Problem z internetem :(");
-            e.printStackTrace();
-        }
+        getFullGsonData = getNewData(ftown, fCountry);
+        getFullGsonDataForSecondCity = getNewData(sTown, sCountry);
+        fullWeatherInformation = getFullGsonData.getFullWeatherInformation();
+        fullWeatherInformationForSecondCity = getFullGsonDataForSecondCity.getFullWeatherInformation();
         firstCountry.setPromptText(SET_COUNTRY);
         firstTown.setPromptText(SET_TOWN);
         secondCountry.setPromptText(SET_COUNTRY);
@@ -442,4 +440,107 @@ public class PrimaryController implements Initializable {
         tempCol.setCellValueFactory(new PropertyValueFactory<>("temp"));
     }
 
+    public List<FullWeatherInformation> getFullWeatherInformation() {
+        return fullWeatherInformation;
+    }
+
+    public void setFullWeatherInformation(List<FullWeatherInformation> fullWeatherInformation) {
+        this.fullWeatherInformation = fullWeatherInformation;
+    }
+
+    public List<FullWeatherInformation> getFullWeatherInformationForSecondCity() {
+        return fullWeatherInformationForSecondCity;
+    }
+
+    public void setFullWeatherInformationForSecondCity(List<FullWeatherInformation> fullWeatherInformationForSecondCity) {
+        this.fullWeatherInformationForSecondCity = fullWeatherInformationForSecondCity;
+    }
+
+    public String getFtown() {
+        return ftown;
+    }
+
+    public void setFtown(String ftown) {
+        this.ftown = ftown;
+    }
+
+    public String getfCountry() {
+        return fCountry;
+    }
+
+    public void setfCountry(String fCountry) {
+        this.fCountry = fCountry;
+    }
+
+    public Label getErrorLabel() {
+        return errorLabel;
+    }
+
+    public void setErrorLabel(Label errorLabel) {
+        this.errorLabel = errorLabel;
+    }
+
+    public TextField getFirstCountry() {
+        return firstCountry;
+    }
+
+    public void setFirstCountry(TextField firstCountry) {
+        this.firstCountry = firstCountry;
+    }
+
+    public TextField getFirstTown() {
+        return firstTown;
+    }
+
+    public void setFirstTown(TextField firstTown) {
+        this.firstTown = firstTown;
+    }
+
+    public GetFullGsonData getGetFullGsonData() {
+        return getFullGsonData;
+    }
+
+    public void setGetFullGsonData(GetFullGsonData getFullGsonData) {
+        this.getFullGsonData = getFullGsonData;
+    }
+
+    public GetFullGsonData getGetFullGsonDataForSecondCity() {
+        return getFullGsonDataForSecondCity;
+    }
+
+    public void setGetFullGsonDataForSecondCity(GetFullGsonData getFullGsonDataForSecondCity) {
+        this.getFullGsonDataForSecondCity = getFullGsonDataForSecondCity;
+    }
+
+    public String getsTown() {
+        return sTown;
+    }
+
+    public void setsTown(String sTown) {
+        this.sTown = sTown;
+    }
+
+    public String getsCountry() {
+        return sCountry;
+    }
+
+    public void setsCountry(String sCountry) {
+        this.sCountry = sCountry;
+    }
+
+    public TextField getSecondCountry() {
+        return secondCountry;
+    }
+
+    public void setSecondCountry(TextField secondCountry) {
+        this.secondCountry = secondCountry;
+    }
+
+    public TextField getSecondTown() {
+        return secondTown;
+    }
+
+    public void setSecondTown(TextField secondTown) {
+        this.secondTown = secondTown;
+    }
 }
