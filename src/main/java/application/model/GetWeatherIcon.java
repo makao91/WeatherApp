@@ -6,11 +6,11 @@ public class GetWeatherIcon {
     private final ImageView image;
 
     public GetWeatherIcon(String linkToIcon) {
-        this.image = new ImageView(linkToIcon);
+        image = new ImageView(linkToIcon);
     }
     public ImageView getImageToResize(int pixelSize) {
-        this.image.setFitWidth(pixelSize);
-        this.image.setFitHeight(pixelSize);
-        return this.image;
+        image.setFitWidth(pixelSize);
+        image.setFitHeight(pixelSize);
+        return image;
     }
 }
